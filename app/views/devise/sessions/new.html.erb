@@ -1,4 +1,9 @@
+<body>
+<div class="body">
+<div class="container">
+
 <h2>Log in</h2>
+<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="IBSyGVIv01pDZ85gXJXZ3S1ZxX2z7avfALSF+2pXABHUdxvFa1A/avLkHEcQlU7Y6k4HSjcQo5veiqFq8Mu19g==">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +29,18 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
+
+<footer>
+  <div class="container">
+  	<div class="row">
+    	<div class="col-xs-3 col-xs-offset-9">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+</body>
+

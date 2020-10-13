@@ -46,11 +46,8 @@
                           <!--↓アソシエーションUserモデルからとってきた-->
   <tr>
   <td><%= attachment_image_tag book.user,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
-
-        <%= link_to book_path(book) do %>
-  <td><%= book.title %></td>
-  <% end %>
-
+        
+       <td><%= link_to book.title, book_path(book)  %></td>
         <td><%= book.body %></td>
       </tr>
       <% end %>

@@ -1,7 +1,7 @@
 
 
   <body>
-    
+
 
 <div class="body">
   <div class="container">
@@ -32,7 +32,8 @@
               <% @books.each do |book| %>
                                             <!--↓アソシエーションUserモデルからとってきた-->
                 <tr>
-                  <td><%= attachment_image_tag book.user,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
+                  <td><%= link_to user_path(book.user.id) do %>
+                      <%= attachment_image_tag book.user,:profile_image, fallback:'no-image.png', size: '40x40' %><% end %></td>
                   <td><%= link_to book.title, book_path(book)  %></td>
                   <td><%= book.body %></td>
                 </tr>
