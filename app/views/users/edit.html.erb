@@ -1,7 +1,6 @@
   	<div class="body">
       <div class="container">
 <h1>User info</h1>
-<form class="edit_user" id="edit_user_25756" enctype="multipart/form-data" action="/users/25756" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="5IORiNfCN3Q5Yg+XRi8OGxzKa+p6rhIdrmzuHyBoDfcWGPUeSU3UBtrTNfh+n3Sh/U4ltz8AdkRdYB4mTPNkVw==">
 
 <%# ここからエラーメッセージ %>
   <% if @user.errors.any? %>
@@ -16,7 +15,7 @@
   <%# ここまでエラーメッセージ %>
 
   <%= form_for @user do |f| %>
-  
+
 <div class="field">
   <label for="user_name">Name</label>
   <%= f.text_field :name %>
@@ -37,7 +36,7 @@
 </div>
 
   <% end %>
- </form>
+
  </div>
     </div>
 
