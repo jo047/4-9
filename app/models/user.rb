@@ -7,7 +7,15 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
+
 
    validates :name, presence: true, length: { in: 2..20 }
    validates :introduction, length: { maximum: 50 }
+
+  def already_favorited?(book)
+    self.favorites.exists?(book_id: book.id)
+  end
+
 end
