@@ -1,0 +1,46 @@
+	<div class="body">
+      <div class="container">
+      	<div class="row">
+
+  <div class="col-xs-9">
+    <table class="table table-hover table-inverse">
+    <h2>Follower Users</h2>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @user.follower_user.each do |follower| %>
+  <tr>
+    <td><%= attachment_image_tag follower,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
+    <td><%= follower.name %></td>
+    <td><%= "フォロー数: #{follower.follower.count}" %></td>
+    <td><%= "フォロワー数: #{follower.followed.count}" %></td>
+    <td><%= link_to 'Show', user_path(follower.id) %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+  	<div class="row">
+    	<div class="col-xs-3 col-xs-offset-9">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
