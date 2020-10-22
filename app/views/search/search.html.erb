@@ -1,0 +1,66 @@
+	<div class="body">
+      <div class="container">
+      	<div class="row">
+
+  <div class="col-xs-9">
+    <table class="table table-hover table-inverse">
+      <!--検索結果-->
+    <h2></h2>
+  <% if @model == "user" %>
+  <thead>
+    <h3><%= "Users searchfor：#{@content}" %></h3>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>Introduction</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% else %>
+  <thead>
+    <h3><%= "Books searchfor：#{@content}" %></h3>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% end %>
+
+  <tbody>
+  <% @datas.each do |datas| %>
+  <% if @model == "user" %>
+  <tr>
+    <td><%= attachment_image_tag datas,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
+    <td><%= datas.name %></td>
+    <td><%= datas.introduction %></td>
+  </tr>
+  <% else %>
+  <tr>
+    <td><%= attachment_image_tag datas.user,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
+    <td><%= datas.title %></td>
+    <td><%= datas.body %></td>
+  </tr>
+  <% end %>
+  <% end %>
+  </tbody>
+  <!--検索結果ここまで-->
+
+</table>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+  	<div class="row">
+    	<div class="col-xs-3 col-xs-offset-9">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+</body></html>

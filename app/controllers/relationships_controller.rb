@@ -15,11 +15,9 @@ class RelationshipsController < ApplicationController
 
   def follows
     @user  = User.find(params[:user_id])
-    # render 'show_follow'
   end
 
   def followers
     @user  = User.find(params[:user_id])
-    # render 'show_follower'
   end
 end
