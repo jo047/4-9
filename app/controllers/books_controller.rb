@@ -27,8 +27,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new = Book.new
     @book_comment = BookComment.new
-    @book_comments = @book.book_comments
-    
+    # @book_comments = @book.book_comments
+    #新着順で表示
+    @book_comments = @book.book_comments.order(created_at: :desc)
   end
 
   def edit

@@ -28,18 +28,10 @@
 
         <!--いいね機能-->
         <td>
-        <% if current_user.already_favorited?(@book) %>
-            <%= link_to book_favorites_path(@book), method: :delete do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= @book.favorites.count %>
-          <% else %>
-            <%= link_to book_favorites_path(@book), method: :post do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-            <%= @book.favorites.count %>
-          <% end %>
-          </td>
+          <div id="favorites_buttons_<%= @book.id %>">
+            <%= render partial: 'favorites/favorite', locals: { book: @book} %>
+          </div>
+        </td>
         <!--いいね機能ここまで-->
 
         <!--コメント件数-->
@@ -58,29 +50,22 @@
 
     </tbody></table>
 
-
-  </div>
-        <table>
+<div class="col-xs-9">
+        <div id="book_comments_area">
           <!--コメント一覧-->
-          <% @book_comments.each do |comment| %>
-            <tr class="sample">
-              <td><%= attachment_image_tag @book.user,:profile_image, fallback:'no-image.png', size: '40x40'%></td>
-              <td><%= comment.user.name %></td>
-              <td><%= comment.comment %></td>
-              <td><%= link_to "Destroy", book_book_comment_path(@book, comment), method: :delete ,class:"btn-sm btn-danger "%></td>
-            </tr>
-          <% end %>
+          <%= render partial: 'book_comments/index', locals: { book_comments: @book_comments, book: @book } %>
           <!--コメント一覧ここまで-->
-        </table>
+        </div>
         <!--コメント投稿-->
-            <%= form_for [@book, @book_comment] do |f| %>
-              <%= f.text_area :comment, size: "40x5" %>
-              <%= f.submit '送信', class: "btn-sm btn-primary" %>
-            <% end %>
+          <% if user_signed_in? %>
+            <%= render partial: 'book_comments/form', locals: { book_comment: @book_comment, book: @book } %>
+          <% end %>
         <!--コメント投稿ここまで-->
+        </div>
 </div>
       </div>
 
+    </div>
     </div>
 
     <footer>
